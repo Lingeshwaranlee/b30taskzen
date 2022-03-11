@@ -1,5 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCar, faChargingStation,  faGasPump, faGaugeHigh, faIndianRupee,faGaugeSimpleHigh } from "@fortawesome/free-solid-svg-icons";
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+import { useState } from "react";
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
+import Button from '@mui/material/Button';
+
 export function Benz() {
   const user2 = [
     {
@@ -58,6 +64,7 @@ export function Benz() {
       mileage: "11.5kmpl",
     },
   ];
+  const[east,seteast]=useState(false);
   return (
     <div>
       <h1 className='world'><FontAwesomeIcon icon={faChargingStation}></FontAwesomeIcon>WELCOME TO MERCEDES BENZ WORLD<FontAwesomeIcon icon={faChargingStation}></FontAwesomeIcon></h1>
@@ -74,6 +81,11 @@ export function Benz() {
         of high revving engines. With that in mind, some are not only attracted to the
          BMW brand just because they produce great cars, but also because of their way of doing things..</h3>
             </div>
+            <div>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              
+              </div>
+              {east ? <iframe width="100%" height="720" src="https://www.youtube.com/embed/csAXruiBLTs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :""}
               <img src="https://www.mbusa.com/content/dam/mb-nafta/us/myco/my22/glc/coupe/class-page/series/2022-GLC-COUPE-HERO-DR.jpg"></img>
       </div>
     </div>
@@ -82,15 +94,24 @@ export function Benz() {
 function Benzcar({ name, series, price, speed, mileage, type, poster }) {
   const styles={backgroundColor:"yellow", textAlign:'center'}
   const ji={textAlign:'center'}
+  const [show,setShow]=useState(false);
   return (
     <div className='benz'>
       <img src={poster} alt="img" className='benz-poster'></img>
-      <h3 style={styles}>{name}</h3>
-      <h3 style={ji}>Car-series: {series}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3>
+      <h3 style={styles}> {series}
+      <IconButton 
+      color="primary" 
+      aria-label="add to shopping cart"
+      onClick={()=>setShow(!show)}
+      >
+  <ExpandCircleDownIcon/>
+</IconButton>
+      </h3>
+      {show ? <h3 style={ji}>Car-series: {series}</h3> :""}
+      {show ? <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3> :""}
+      {show ? <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3> :""}
+      {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3> :""}
+      {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3> :""}
     </div>
   );
 }

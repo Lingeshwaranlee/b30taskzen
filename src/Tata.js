@@ -1,5 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChargingStation,faCar, faGasPump, faGaugeHigh, faIndianRupee,faGaugeSimpleHigh} from "@fortawesome/free-solid-svg-icons";
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+import { useState } from "react";
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
+import Button from '@mui/material/Button';
+
+
 export function Tata() {
   const user3 = [
     {
@@ -93,6 +100,8 @@ export function Tata() {
       mileage: "306km(single-charge)",
     },
   ];
+  const[east,seteast]=useState(false);
+  
   return (
     <div>
       <h1 className='world'><FontAwesomeIcon icon={faChargingStation}></FontAwesomeIcon> WELCOME TO TATA WORLD <FontAwesomeIcon icon={faChargingStation}></FontAwesomeIcon></h1>
@@ -111,23 +120,39 @@ export function Tata() {
           after purchasing several global companies. It is one of the biggest and oldest
            industrial groups in India.</h3>
             </div>
+            <div>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              
+              </div>
+              {east ? <iframe width="100%" height="720" src="https://www.youtube.com/embed/Rag287hQj28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  :""}
+            
                  <img src="https://cars.tatamotors.com/images/kaziranga/harrier-kaziranga-desktop-banner-1.png"></img>
       </div>
+     
     </div>
   );
 }
 function Tatacar({ name, series, price, speed, mileage, type, poster }) {
   const styles={backgroundColor:"yellow", textAlign:'center'}
   const ji={textAlign:'center'}
+  const [show,setShow]=useState(false);
   return (
     <div className='tata'>
       <img src={poster} alt="img" className='tata-poster'></img>
-      <h3 style={styles}>{name}</h3>
-      <h3 style={ji}>Car-series: {series}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3>
+      <h3 style={styles}>{series}
+      <IconButton 
+      color="primary" 
+      aria-label="add to shopping cart"
+      onClick={()=>setShow(!show)}
+      >
+  <ExpandCircleDownIcon/>
+</IconButton>
+      </h3>
+        {show ? <h3 style={ji}>Car-series: {series}</h3> :""}
+        {show ? <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3> :""}
+        {show ? <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3> :""}
+        {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3> :""}
+        {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3> :""}
     </div>
   );
 }

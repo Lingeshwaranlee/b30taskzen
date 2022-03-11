@@ -1,7 +1,12 @@
 import { faCar, faChargingStation,  faGasPump, faGaugeHigh, faIndianRupee, faGaugeSimpleHigh} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { textAlign } from "@mui/system";
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
+import Button from '@mui/material/Button';
+
 
 export function Tesla() {
   const user = [
@@ -42,7 +47,8 @@ export function Tesla() {
       mileage: "520 km(single-charge)",
     }
   ];
-  const history = useHistory();
+  
+  const[east,seteast]=useState(false);
   return (
     <div>
       <h1 className='world'><FontAwesomeIcon icon={faChargingStation}></FontAwesomeIcon> WELCOME TO TESLA WORLD <FontAwesomeIcon icon={faChargingStation}></FontAwesomeIcon></h1>
@@ -64,6 +70,11 @@ export function Tesla() {
            Tesla believes the faster the world stops relying on fossil fuels and moves towards
             a zero-emission future, the better.</h3>
             </div>
+            <div>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              
+              </div>
+              {east ?  <iframe width="100%" height="720" src="https://www.youtube.com/embed/jWreyC2l-dw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :""}
           <img src="https://www.topgear.com/sites/default/files/images/news-article/2017/06/1a25df25e98a5d9f2c6a61a951de3498/scenic_mountain_1.jpg"></img>
       </div>
     </div>
@@ -72,17 +83,26 @@ export function Tesla() {
 function Teslacar({ name, series, price, speed, mileage, type, poster }) {
   const styles={backgroundColor:"yellow", textAlign:'center'}
   const ji={textAlign:'center'}
+  const [show,setShow]=useState(false);
   return (
     <div className='tesla'>
 
 
       <img src={poster} alt="img" className='tesla-poster'></img>
-      <h3 style={styles}>{name}</h3>
-      <h3 style={ji}>Car-series: {series}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>:{price}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3>
+      <h3 style={styles}>{series}<IconButton 
+      color="primary" 
+      aria-label="add to shopping cart"
+      onClick={()=>setShow(!show)}
+      >
+  <ExpandCircleDownIcon />
+</IconButton></h3>
+{show ?  <h3 style={ji}>Car-series: {series}</h3>:""}
+{show ?  <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3> :""}  
+{show ?  <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>:{price}</h3> :""}
+{show ?   <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3>:""}
+{show ?  <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3>:""}
+      
+    
       
 
     </div>

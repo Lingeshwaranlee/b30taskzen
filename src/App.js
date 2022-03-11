@@ -1,44 +1,22 @@
 import './index.css';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Route, Switch } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router,Route, Switch } from 'react-router-dom';
+
 import { Tesla } from './Tesla';
 import { Bmw } from './Bmw';
 import { Benz } from './Benz';
 import { Tata } from './Tata';
 import { Hyundai } from './Hyundai';
 import { Jaguar } from './Jaguar';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import { useHistory } from 'react-router-dom';
+import Nav from './Nav';
 
 
 export default function App() {
-const history =useHistory();
+
   return (
     <div className="App">
       <Router>
-        
-          <li><Link to="/">HOME</Link></li>
-          <li><Link to="/tesla">TESLA</Link></li>
-          <li><Link to="/bmw">BMW</Link></li>
-          <li><Link to="/benz">BENZ</Link></li>
-          <li><Link to="/jaguar">JAGUAR</Link></li>
-          <li><Link to="/tata">TATA</Link></li>
-          <li><Link to="/hyundai">HYUNDAI</Link></li>
-          <AppBar position="static">
-        <Toolbar>
-          <Button color="inherit" onClick={()=>history.push("/")}>HOME</Button>
-          <Button color="inherit" onClick={()=>history.push("/tesla")}>TESLA</Button>
-          <Button color="inherit" onClick={()=>history.push("/bmw")}>BMW</Button>
-          <Button color="inherit" onClick={()=>history.push("/benz")}>BENZ</Button>
-          <Button color="inherit" onClick={()=>history.push("/jaguar")}>JAGUAR</Button>
-          <Button color="inherit" onClick={()=>history.push("/tata")}>TATA</Button>
-          <Button color="inherit" onClick={()=>history.push("/hyundai")}>HYUNDAI</Button>
-        </Toolbar>
-      </AppBar>
-     
+      
+          <Nav/>
         <Switch>
           <Route exact path="/"><Home/></Route>
           <Route path="/tesla"><Tesla/></Route>
@@ -97,5 +75,4 @@ function Brandey({profile}){
 </div>
   );
 }
- 
 

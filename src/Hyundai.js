@@ -1,5 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCar, faChargingStation,  faGasPump, faGaugeHigh, faIndianRupee,faGaugeSimpleHigh } from "@fortawesome/free-solid-svg-icons";
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+import { useState } from "react";
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
+import Button from '@mui/material/Button';
+
+
 export function Hyundai() {
   const user4 = [
     {
@@ -14,7 +21,7 @@ export function Hyundai() {
 
     {
       name: "HYUNDAI",
-      poster: "https://images.news18.com/ibnlive/uploads/2020/12/1608967064_2020-hyundai-creta.jpg?im=Resize,width=360,aspect=fit,type=normal?im=Resize,width=320,aspect=fit,type=normal",
+      poster: "https://besthqwallpapers.com/Uploads/12-2-2021/153980/thumb2-hyundai-creta-4k-road-2021-cars-crossovers.jpg",
       series: "Hyundai Creta ",
       type: "Diesel/Petrol",
       price: "17.9 Lakhs",
@@ -76,7 +83,7 @@ export function Hyundai() {
       mileage: "17-23 km/l combined",
     },
   ];
-
+  const[east,seteast]=useState(false);
   return (
     
     <div>
@@ -93,6 +100,11 @@ export function Hyundai() {
         known as Hyundai, is a South Korean multinational automotive manufacturer
          headquartered in Seoul, South Korea. Hyundai Motor Company was founded in 1967.</h3>
             </div>
+            <div>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              
+              </div>
+              {east ? <iframe width="100%" height="720" src="https://www.youtube.com/embed/N3tH_3A1000" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :""}
                <img src="https://www.hyundai.com/content/dam/hyundai/in/en/data/find-a-car/Creta/Highlights/pc/march/Hyundai_CRETA_SUV_MainKV_PC_1860x540.jpg"></img>
       </div>
     </div>
@@ -101,15 +113,24 @@ export function Hyundai() {
 function Hyundaicar({ name, series, price, speed, mileage, type, poster }) {
   const styles={backgroundColor:"yellow", textAlign:'center'}
   const ji={textAlign:'center'}
+  const [show,setShow]=useState(false);
   return (
     <div className='hyundai'>
       <img src={poster} alt="img" className='hyundai-poster'></img>
-      <h3 style={styles}>{name}</h3>
-      <h3 style={ji}>Car-series: {series}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3>
+      <h3 style={styles}>{series}
+      <IconButton 
+      color="primary" 
+      aria-label="add to shopping cart"
+      onClick={()=>setShow(!show)}
+      >
+  <ExpandCircleDownIcon/>
+</IconButton>
+      </h3>
+       {show ? <h3 style={ji}>Car-series: {series}</h3> :""}
+       {show ? <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3> :""}
+       {show ? <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3> :""}
+       {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3> :""}
+       {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3> :""}
     </div>
   );
 }

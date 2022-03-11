@@ -1,5 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCar, faChargingStation,  faGasPump, faGaugeHigh, faIndianRupee,faGaugeSimpleHigh } from "@fortawesome/free-solid-svg-icons";
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+import { useState } from "react";
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
+import Button from '@mui/material/Button';
+
+
 export function Bmw() {
   const user1 = [
     {
@@ -59,6 +66,7 @@ export function Bmw() {
       mileage: "15-20 km/l combined",
     },
   ];
+  const[east,seteast]=useState(false);
   return (
     <div>
       <h1 className='world'><FontAwesomeIcon icon={faChargingStation}></FontAwesomeIcon> WELCOME TO BMW WORLD <FontAwesomeIcon icon={faChargingStation}></FontAwesomeIcon></h1>
@@ -77,23 +85,37 @@ export function Bmw() {
           groundbreaking vehicles since Karl Benz introduced what's considered the 
           first petrol-powered car in 1886</h3>
             </div>
+            <div>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              
+              </div>
+              {east ?  <iframe width="100%" height="720" src="https://www.youtube.com/embed/BMRseEVaO-Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :""}
           <img src="https://www.bmw.in/content/dam/bmw/marketIN/bmw_in/all-models/x-series/X4/2021/1680x756_W_o_Text.jpg/jcr:content/renditions/cq5dam.resized.img.1680.large.time1645528673885.jpg"></img>
       </div>
     </div>
   );
-}
+} 
 function Bmwcar({ name, series, price, speed, mileage, type, poster }) {
   const styles={backgroundColor:"yellow", textAlign:'center'}
   const ji={textAlign:'center'}
+  const [show,setShow]=useState(false);
   return (
     <div className='bmw'>
       <img src={poster} alt="img" className='bmw-poster'></img>
-      <h3 style={styles}>{name}</h3>
-      <h3 style={ji}>Car-series: {series}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3>
+      <h3 style={styles}>{series}
+      <IconButton 
+      color="primary" 
+      aria-label="add to shopping cart"
+      onClick={()=>setShow(!show)}
+      >
+  <ExpandCircleDownIcon/>
+</IconButton>
+      </h3>
+      {show ? <h3 style={ji}>Car-series: {series}</h3> :""}
+      {show ? <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3> :""}
+      {show ? <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3> :""}
+      {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3> :""}
+      {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3> :""}
     </div>
   );
 }

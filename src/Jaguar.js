@@ -1,5 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCar, faChargingStation,  faGasPump, faGaugeHigh, faIndianRupee, faGaugeSimpleHigh} from "@fortawesome/free-solid-svg-icons";
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+import { useState } from "react";
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
+import Button from '@mui/material/Button';
+
+
 export function Jaguar() {
   const user = [
     {
@@ -50,6 +57,7 @@ export function Jaguar() {
     },
     
   ];
+  const[east,seteast]=useState(false);
   return (
     <div>
       <h1 className='world'><FontAwesomeIcon icon={faChargingStation}></FontAwesomeIcon> WELCOME TO JAGUAR WORLD <FontAwesomeIcon icon={faChargingStation}></FontAwesomeIcon></h1>
@@ -69,6 +77,11 @@ export function Jaguar() {
               brand of Jaguar Land Rover, a British multinational car manufacturer with 
               its headquarters in Whitley, Coventry, England.</h3>
         </div>
+        <div>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              
+              </div>
+              {east ? <iframe width="100%" height="720" src="https://www.youtube.com/embed/bO08STHIhgE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :""}
         <img src="https://assets-eu-01.kc-usercontent.com/bb5aba31-d98c-0160-8548-418b3723c58e/40c263fc-b4c2-4a59-a6fe-d3c361b26c19/Jaguar%20F-Pace%20(6).jpeg"></img>
 
       </div>
@@ -78,17 +91,26 @@ export function Jaguar() {
 function Jaguarcar({ name, series, price, speed, mileage, type, poster }) {
   const styles = { backgroundColor: "yellow", textAlign: 'center' };
   const ji = { textAlign: 'center' };
+  const [show,setShow]=useState(false);
   return (
     <div className='jaguar'>
 
 
       <img src={poster} alt="img" className='jaguar-poster'></img>
-      <h3 style={styles}><b>{name}</b></h3>
-      <h3 style={ji}>Car-series: {series}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>:{price}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3>
-      <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3>
+      <h3 style={styles}><b>{series}</b>
+      <IconButton 
+      color="primary" 
+      aria-label="add to shopping cart"
+      onClick={()=>setShow(!show)}
+      >
+  <ExpandCircleDownIcon/>
+</IconButton>
+      </h3>
+      {show ?  <h3 style={ji}>Car-series: {series}</h3> :""}
+      {show ?  <h3 style={ji}><FontAwesomeIcon icon={faGasPump}></FontAwesomeIcon>: {type}</h3> :""}
+      {show ?  <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>:{price}</h3> :""}
+      {show ?  <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3> :""}
+      {show ?  <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3> :""}
 
 
     </div>
