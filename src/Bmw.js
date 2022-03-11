@@ -5,7 +5,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import { useState } from "react";
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import Button from '@mui/material/Button';
-
+import AirlineSeatReclineExtraIcon from '@mui/icons-material/AirlineSeatReclineExtra';
 
 export function Bmw() {
   const user1 = [
@@ -17,6 +17,7 @@ export function Bmw() {
       price: "70.75 Lakhs",
       speed: "278 kmph",
       mileage: "8-13 km/l combined",
+      seat:"5",
     },
     {
       name: "BMW",
@@ -26,6 +27,7 @@ export function Bmw() {
       price: "1.2 crore",
       speed: "250 kmph",
       mileage: "10 km/l combined",
+      seat:"5",
     },
     
     {
@@ -36,6 +38,7 @@ export function Bmw() {
       price: "60 Lakhs",
       speed: "250 kmph",
       mileage: "13-17 km/l combined",
+      seat:"5",
     },
     {
       name: "BMW",
@@ -45,6 +48,7 @@ export function Bmw() {
       price: "60.75 Lakhs",
       speed: "250 kmph",
       mileage: "11-15 km/l combined",
+      seat:"5",
     },
    
     {
@@ -55,6 +59,7 @@ export function Bmw() {
       price: "1.7 crore",
       speed: "250 kmph",
       mileage: "11-13 km/l combined",
+      seat:"5",
     },
     {
       name: "BMW",
@@ -64,6 +69,7 @@ export function Bmw() {
       price: "40 Lakhs",
       speed: "222 kmph",
       mileage: "15-20 km/l combined",
+      seat:"5",
     },
   ];
   const[east,seteast]=useState(false);
@@ -75,7 +81,7 @@ export function Bmw() {
       <h1 className="brand">BRANDS OF CARS AVAILABLE <FontAwesomeIcon icon={faCar}></FontAwesomeIcon></h1>
       <div className='bmw-list'>
         {user1.map((nm) => <Bmwcar name={nm.name} series={nm.series} price={nm.price}
-          speed={nm.speed} mileage={nm.mileage} type={nm.type} poster={nm.poster} />)}
+          speed={nm.speed} mileage={nm.mileage} type={nm.type} poster={nm.poster}seat={nm.seat} />)}
           <div className="joy">
       <h1>About Bmw:</h1>
       <h2 className="tes1">BMW’s mission is to accelerate the world’s transition to sustainable energy.</h2>
@@ -86,7 +92,7 @@ export function Bmw() {
           first petrol-powered car in 1886</h3>
             </div>
             <div>
-              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER-CLICK ME</Button>🎉🎉</h1>
               
               </div>
               {east ?  <iframe width="100%" height="720" src="https://www.youtube.com/embed/BMRseEVaO-Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :""}
@@ -95,14 +101,14 @@ export function Bmw() {
     </div>
   );
 } 
-function Bmwcar({ name, series, price, speed, mileage, type, poster }) {
-  const styles={backgroundColor:"yellow", textAlign:'center'}
+function Bmwcar({ name, series, price, speed, mileage, type, poster,seat }) {
+
   const ji={textAlign:'center'}
   const [show,setShow]=useState(false);
   return (
     <div className='bmw'>
       <img src={poster} alt="img" className='bmw-poster'></img>
-      <h3 style={styles}>{series}
+      <h3 className='styles'>{series}
       <IconButton 
       color="primary" 
       aria-label="add to shopping cart"
@@ -116,6 +122,7 @@ function Bmwcar({ name, series, price, speed, mileage, type, poster }) {
       {show ? <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3> :""}
       {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3> :""}
       {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3> :""}
+      {show ?  <h3 style={ji}><AirlineSeatReclineExtraIcon/>:{seat}</h3>:""}   
     </div>
   );
 }

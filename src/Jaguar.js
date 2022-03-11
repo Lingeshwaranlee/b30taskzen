@@ -5,7 +5,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import { useState } from "react";
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import Button from '@mui/material/Button';
-
+import AirlineSeatReclineExtraIcon from '@mui/icons-material/AirlineSeatReclineExtra';
 
 export function Jaguar() {
   const user = [
@@ -17,6 +17,7 @@ export function Jaguar() {
       price: "82 Lakhs",
       speed: "210 kmph",
       mileage: " 19.3 kmpl",
+      seat:"5",
     },
     {
       name: "JAGUAR",
@@ -26,6 +27,7 @@ export function Jaguar() {
       price: "1.12 Crore",
       speed: "200 kmph",
       mileage: "470 km(single-charge)",
+      seat:"5",
     },
     {
       name: "JAGUAR",
@@ -35,6 +37,7 @@ export function Jaguar() {
       price: "76 Lakhs",
       speed: "235 kmph",
       mileage: " (13.1 to 19.3 Km/l)",
+      seat:"5",
     },
     {
       name: "JAGUAR",
@@ -44,7 +47,9 @@ export function Jaguar() {
       price: "48.50 Lakhs",
       speed: "250 kmph",
       mileage: "(13.5 to 13.6 kmpl.)",
+      seat:"5",
     },
+
    
     {
       name: "JAGUAR",
@@ -54,6 +59,7 @@ export function Jaguar() {
       price: "2.61 crore",
       speed: "250 kmph",
       mileage: "(10.9 to 15.3 Km/l)",
+      seat:"2",
     },
     
   ];
@@ -67,7 +73,7 @@ export function Jaguar() {
       <h1 className="brand">BRANDS OF CARS AVAILABLE  <FontAwesomeIcon icon={faCar}></FontAwesomeIcon></h1>
       <div className='jaguar-list'>
         {user.map((nm) => <Jaguarcar name={nm.name} series={nm.series} price={nm.price}
-          speed={nm.speed} mileage={nm.mileage} type={nm.type} poster={nm.poster} />)}
+          speed={nm.speed} mileage={nm.mileage} type={nm.type} poster={nm.poster} seat={nm.seat}/>)}
         <div className="joy">
           <h1>About Jaguar:</h1>
           <h2 className="tes1">Jaguar’s mission is to accelerate the world’s transition to sustainable energy.</h2>
@@ -78,7 +84,7 @@ export function Jaguar() {
               its headquarters in Whitley, Coventry, England.</h3>
         </div>
         <div>
-              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER-CLICK ME</Button>🎉🎉</h1>
               
               </div>
               {east ? <iframe width="100%" height="720" src="https://www.youtube.com/embed/bO08STHIhgE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :""}
@@ -88,8 +94,8 @@ export function Jaguar() {
     </div>
   );
 }
-function Jaguarcar({ name, series, price, speed, mileage, type, poster }) {
-  const styles = { backgroundColor: "yellow", textAlign: 'center' };
+function Jaguarcar({ name, series, price, speed, mileage, type, poster ,seat}) {
+
   const ji = { textAlign: 'center' };
   const [show,setShow]=useState(false);
   return (
@@ -97,7 +103,7 @@ function Jaguarcar({ name, series, price, speed, mileage, type, poster }) {
 
 
       <img src={poster} alt="img" className='jaguar-poster'></img>
-      <h3 style={styles}><b>{series}</b>
+      <h3 className='styles'><b>{series}</b>
       <IconButton 
       color="primary" 
       aria-label="add to shopping cart"
@@ -111,7 +117,7 @@ function Jaguarcar({ name, series, price, speed, mileage, type, poster }) {
       {show ?  <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>:{price}</h3> :""}
       {show ?  <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3> :""}
       {show ?  <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3> :""}
-
+      {show ?  <h3 style={ji}><AirlineSeatReclineExtraIcon/>:{seat}</h3>:""} 
 
     </div>
   );

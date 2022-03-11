@@ -1,8 +1,49 @@
 body{
     background-color: rgb(236, 231, 231);
-   
+    
+}
+.you{
+    color: rgba(14, 13, 13, 0.63);
+    padding-top: 650px;
+    text-align: center;
+    
+}
+.gh{
+    color: rgba(240, 234, 234, 0.63);
+    padding-top: 70px;
+    padding-left: 50px;
+}
+.styles{
+    text-align: center;
+    background-image: linear-gradient(to bottom right,rgb(211, 201, 201),rgb(46, 44, 44));
 }
 
+.nj{
+    width:100%;
+    color: red;
+}
+.leo{
+    text-align: center;
+    background-image: linear-gradient(to bottom right,rgb(211, 201, 201),rgb(46, 44, 44));
+}
+
+.qa{
+    color: BLACK;
+    text-align: center;
+    background-image: linear-gradient(to bottom right,rgb(211, 201, 201),rgb(46, 44, 44));
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.pic{
+    background-image: url("https://imgd.aeplcdn.com/0X0/n/cw/ec/49765/rollsroyce-phantom-viii-left-front-three-quarter0.jpeg?q=75");
+position: relative;
+object-fit: cover;
+
+}
+.qw{
+    width:100%;
+    margin:20px;
+}
 
 .brand-list{
     display: flex;
@@ -58,7 +99,7 @@ body{
 }
 .kill{
     text-align: center;
-    background-image: linear-gradient(to bottom right,red,black);
+    background-image: linear-gradient(to bottom right,rgb(211, 201, 201),rgb(46, 44, 44));
     opacity: 2.8;
     background-size: cover;
     height:auto;

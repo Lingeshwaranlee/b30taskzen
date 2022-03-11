@@ -5,6 +5,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import { useState } from "react";
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import Button from '@mui/material/Button';
+import AirlineSeatReclineExtraIcon from '@mui/icons-material/AirlineSeatReclineExtra';
 
 
 export function Tata() {
@@ -17,6 +18,7 @@ export function Tata() {
       price: "9.18 Lakh",
       speed: "	150 kmph",
       mileage: "19 km/l combined",
+      seat:"5",
     },
     {
       name: "TATA",
@@ -26,6 +28,7 @@ export function Tata() {
       price: " 13.73 Lakh",
       speed: "180 kph",
       mileage: "16-22 km/l combined",
+      seat:"5",
     },
     {
       name: "TATA",
@@ -35,6 +38,7 @@ export function Tata() {
       price: "21.70 Lakh",
       speed: "180 kmph",
       mileage: "15-16 km/l combined",
+      seat:"6",
     },
     {
       name: "TATA",
@@ -44,6 +48,7 @@ export function Tata() {
       price: "7.64 Lakh",
       speed: "165 kmph",
       mileage: "20 km/l combined",
+      seat:"5",
     },
     {
       name: "TATA",
@@ -53,6 +58,7 @@ export function Tata() {
       price: " 9.69 Lakh",
       speed: "165+ kmph",
       mileage: "19-25 km/l combined",
+      seat:"5",
     },
     {
       name: "TATA",
@@ -62,6 +68,7 @@ export function Tata() {
       price: "8.41 Lakh",
       speed: "164 kmph",
       mileage: "19 km/l combined",
+      seat:"5",
     },
     {
       name: "TATA",
@@ -71,6 +78,7 @@ export function Tata() {
       price: "23.29 Lakh",
       speed: "180 kmph",
       mileage: "14-16 km/l combined",
+      seat:"6",
     },
     {
       name: "TATA",
@@ -80,6 +88,7 @@ export function Tata() {
       price: " 7.17 Lakh",
       speed: "150 kmph",
       mileage: "20 km/l combined",
+      seat:"5",
     },
     {
       name: "TATA",
@@ -89,6 +98,7 @@ export function Tata() {
       price: "13.14 Lakh",
       speed: "120kmph",
       mileage: "312 km(single-charge)",
+      seat:"5",
     },
     {
       name: "TATA",
@@ -98,6 +108,7 @@ export function Tata() {
       price: "13.14 Lakh",
       speed: "80kph",
       mileage: "306km(single-charge)",
+      seat:"5",
     },
   ];
   const[east,seteast]=useState(false);
@@ -111,7 +122,7 @@ export function Tata() {
       <h1 className="brand">BRANDS OF CARS AVAILABLE<FontAwesomeIcon icon={faCar}></FontAwesomeIcon></h1>
       <div className='tata-list'>
         {user3.map((nm) => <Tatacar name={nm.name} series={nm.series} price={nm.price}
-          speed={nm.speed} mileage={nm.mileage} type={nm.type} poster={nm.poster} />)}
+          speed={nm.speed} mileage={nm.mileage} type={nm.type} poster={nm.poster} seat={nm.seat} />)}
           <div className="joy">
       <h1>About Tata:</h1>
       <h2 className="tes1">TATA’s mission is to accelerate the world’s transition to sustainable energy.</h2>
@@ -121,7 +132,7 @@ export function Tata() {
            industrial groups in India.</h3>
             </div>
             <div>
-              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER-CLICK ME</Button>🎉🎉</h1>
               
               </div>
               {east ? <iframe width="100%" height="720" src="https://www.youtube.com/embed/Rag287hQj28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  :""}
@@ -132,14 +143,14 @@ export function Tata() {
     </div>
   );
 }
-function Tatacar({ name, series, price, speed, mileage, type, poster }) {
-  const styles={backgroundColor:"yellow", textAlign:'center'}
+function Tatacar({ name, series, price, speed, mileage, type, poster,seat}) {
+  
   const ji={textAlign:'center'}
   const [show,setShow]=useState(false);
   return (
     <div className='tata'>
       <img src={poster} alt="img" className='tata-poster'></img>
-      <h3 style={styles}>{series}
+      <h3 className='styles'>{series}
       <IconButton 
       color="primary" 
       aria-label="add to shopping cart"
@@ -153,6 +164,7 @@ function Tatacar({ name, series, price, speed, mileage, type, poster }) {
         {show ? <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3> :""}
         {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3> :""}
         {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3> :""}
+        {show ?  <h3 style={ji}><AirlineSeatReclineExtraIcon/>:{seat}</h3>:""} 
     </div>
   );
 }

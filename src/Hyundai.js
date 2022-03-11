@@ -5,7 +5,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import { useState } from "react";
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import Button from '@mui/material/Button';
-
+import AirlineSeatReclineExtraIcon from '@mui/icons-material/AirlineSeatReclineExtra';
 
 export function Hyundai() {
   const user4 = [
@@ -17,6 +17,7 @@ export function Hyundai() {
       price: " 23.79 Lakh",
       speed: "155 km/h",
       mileage: "452 Km(single-charge)",
+      seat:"5",
     },
 
     {
@@ -27,6 +28,7 @@ export function Hyundai() {
       price: "17.9 Lakhs",
       speed: "195 kmph",
       mileage: "17-21 km/l combined",
+      seat:"5",
     },
     {
       name: "HYUNDAI",
@@ -36,6 +38,7 @@ export function Hyundai() {
       price: "27.5 Lakhs",
       speed: "120mph",
       mileage: " 13-17 km/l combined",
+      seat:"5",
     },
     {
       name: "HYUNDAI",
@@ -45,6 +48,7 @@ export function Hyundai() {
       price: "65 Lakhs",
       speed: "179 km/h.",
       mileage: "666 kilometres (WLTP) ",
+      seat:"5",
     },
     {
       name: "HYUNDAI",
@@ -54,6 +58,7 @@ export function Hyundai() {
       price: "6 Lakhs",
       speed: "151 kmph.",
       mileage: "13-17 km/l combined",
+      seat:"5",
     },
     {
       name: "HYUNDAI",
@@ -63,6 +68,7 @@ export function Hyundai() {
       price: " 21.13 Lakh.",
       speed: "140mph. ",
       mileage: "14-23 km/l combined",
+      seat:"5",
     },
     {
       name: "HYUNDAI",
@@ -72,6 +78,7 @@ export function Hyundai() {
       price: "40 Lakhs",
       speed: "210 km/h",
       mileage: "26 MPG",
+      seat:"5",
     },
     {
       name: "HYUNDAI",
@@ -81,18 +88,19 @@ export function Hyundai() {
       price: " 11.87 Lakh.",
       speed: "160km/h",
       mileage: "17-23 km/l combined",
+      seat:"5",
     },
   ];
   const[east,seteast]=useState(false);
   return (
     
     <div>
-      <h1 className='world'><FontAwesomeIcon icon={faChargingStation} ></FontAwesomeIcon>🎉🎉WELCOME TO HYUNDAI WORLD🎉🎉</h1>
+      <h1 className='world'><FontAwesomeIcon icon={faChargingStation} ></FontAwesomeIcon> WELCOME TO HYUNDAI WORLD <FontAwesomeIcon icon={faChargingStation} ></FontAwesomeIcon></h1>
       <img src="https://www.hyundai.com/content/dam/hyundai/in/en/data/find-a-car/Tucson/Highlights/Hyundai-Tucson-InnerPage-Banner2-PC-new.jpg"></img>
       <h1 className="brand">BRANDS OF CARS AVAILABLE  <FontAwesomeIcon icon={faCar}></FontAwesomeIcon></h1>
       <div className='hyundai-list'>
         {user4.map((nm) => <Hyundaicar name={nm.name} series={nm.series} price={nm.price}
-          speed={nm.speed} mileage={nm.mileage} type={nm.type} poster={nm.poster} />)}
+          speed={nm.speed} mileage={nm.mileage} type={nm.type} poster={nm.poster}seat={nm.seat} />)}
           <div className="joy">
       <h1>About Hyundai:</h1>
       <h2 className="tes1">HYUNDAI’s mission is to accelerate the world’s transition to sustainable energy.</h2>
@@ -101,7 +109,7 @@ export function Hyundai() {
          headquartered in Seoul, South Korea. Hyundai Motor Company was founded in 1967.</h3>
             </div>
             <div>
-              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER-CLICK ME</Button>🎉🎉</h1>
               
               </div>
               {east ? <iframe width="100%" height="720" src="https://www.youtube.com/embed/N3tH_3A1000" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :""}
@@ -110,14 +118,14 @@ export function Hyundai() {
     </div>
   );
 }
-function Hyundaicar({ name, series, price, speed, mileage, type, poster }) {
-  const styles={backgroundColor:"yellow", textAlign:'center'}
+function Hyundaicar({ name, series, price, speed, mileage, type, poster,seat }) {
+  
   const ji={textAlign:'center'}
   const [show,setShow]=useState(false);
   return (
     <div className='hyundai'>
       <img src={poster} alt="img" className='hyundai-poster'></img>
-      <h3 style={styles}>{series}
+      <h3 className='styles'>{series}
       <IconButton 
       color="primary" 
       aria-label="add to shopping cart"
@@ -131,6 +139,7 @@ function Hyundaicar({ name, series, price, speed, mileage, type, poster }) {
        {show ? <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>: {price}</h3> :""}
        {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3> :""}
        {show ? <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3> :""}
+       {show ?  <h3 style={ji}><AirlineSeatReclineExtraIcon/>:{seat}</h3>:""} 
     </div>
   );
 }

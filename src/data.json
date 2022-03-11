@@ -323,7 +323,7 @@
     "mileage": "660 km(single-charge)"
   },
   {
-    "id": "131",
+    "id": "132",
     "name": "BMW",
     "poster": "https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20200527021853_Mercedes-E-Class_Cabriolet.jpg",
     "series": "Mercedes-Benz E-Class Cabriolet Facelift",
@@ -334,7 +334,7 @@
   },
 
   {
-    "id": "132",
+    "id": "133",
     "name": "BMW",
     "poster": "https://www.mercedes-benz.com/en/vehicles/passenger-cars/gls/mercedes-amg-gls-63-4matic/_jcr_content/image/MQ6-12-image-20191120194413/00-mercedes-benz-2020-mercedes-amg-gls-63-4matic-x167-polar-white-2560x1440.jpeg",
     "series": "Mercedes-Benz GLS 63",
@@ -342,5 +342,58 @@
     "price": "1.92 crore",
     "speed": "174 km/h",
     "mileage": "11.5kmpl"
-  }
+  },
+  {
+    "id": "134",
+    "name": "ROLLS-ROYCE",
+    "poster": "https://www.wallpaperup.com/uploads/wallpapers/2017/10/23/1129940/de7f2008221d92f2f63ecfa1037e4675-700.jpg",
+    "series": "Rolls-Royce Ghost",
+    "type": "Petrol",
+    "price": "7.95 crore",
+    "speed": "155 miles per hour",
+    "mileage": " 6.33 kmpl"
+  },
+  {
+    "id": "135",
+    "name": "ROLLS-ROYCE",
+    "poster": "https://imageio.forbes.com/specials-images/imageserve/617a778d66fbfc6c231e3a1a/The-new-Rolls-Royce-Ghost-Black-Badge/960x0.jpg?fit=bounds&format=jpg&width=960",
+    "series": "Rolls-Royce Phantom",
+    "type": "Petrol",
+    "price": "10.48 Crore",
+    "speed": "155 mph",
+    "mileage": "9.8 kmpl"
+  },
+
+  {
+    "id": "136",
+    "name": "ROLLS-ROYCE",
+    "poster": "https://www.rolls-roycemotorcars.com/content/dam/rrmc/marketUK/rollsroycemotorcars_com/4-0-bespoke/components/D_COLLECTION_OFFGRID_CAROUSEL_LSWRAITH.jpg/jcr:content/renditions/cq5dam.web.1920.webp",
+    "series": "Rolls-Royce Cullinan",
+    "type": "Petrol",
+    "price": "6.95 crore",
+    "speed": "155 miles per hour",
+    "mileage": "9.5 kmpl"
+  },
+
+  {
+    "id": "137",
+    "name": "ROLLS-ROYCE",
+    "poster": "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F04%2Fspofec-overdose-rolls-royce-black-badge-wraith-wide-body-kit-tuned-v12-custom-rare-limited-edition-novitec-0.jpg?w=960&cbr=1&q=90&fit=max",
+    "series": "Rolls-Royce Wraith",
+    "type": "Petrol",
+    "price": "7.21 Crore",
+    "speed": "155 miles per hour",
+    "mileage": "10.2 kmpl"
+  },
+
+  {
+    "id": "138",
+    "name": "ROLLS-ROYCE",
+    "poster": "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F09%2Fmansory-rolls-royce-dawn-silver-bullet-soft-kit-custom-tuned-conversion-limited-edition-1.jpg?q=75&w=800&cbr=1&fit=max",
+    "series": "Rolls-Royce Dawn",
+    "type": "Petrol",
+    "price": "7.85 Crore",
+    "speed": "155 miles per hour",
+    "mileage": "9.8 kmpl"
+  },
 ]

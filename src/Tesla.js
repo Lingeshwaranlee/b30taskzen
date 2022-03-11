@@ -1,12 +1,10 @@
-import { faCar, faChargingStation,  faGasPump, faGaugeHigh, faIndianRupee, faGaugeSimpleHigh} from "@fortawesome/free-solid-svg-icons";
+import { faCar, faChargingStation,  faGasPump, faGaugeHigh, faIndianRupee, faGaugeSimpleHigh, faEngine, fa1} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import IconButton from '@mui/material/IconButton';
-import InfoIcon from '@mui/icons-material/Info';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import Button from '@mui/material/Button';
-
+import AirlineSeatReclineExtraIcon from '@mui/icons-material/AirlineSeatReclineExtra';
 
 export function Tesla() {
   const user = [
@@ -18,6 +16,7 @@ export function Tesla() {
       price: "60 Lakhs",
       speed: "162 mph",
       mileage: "498 km(single-charge)",
+      seat:"5",
     },
     {
       name: "TESLA",
@@ -27,6 +26,7 @@ export function Tesla() {
       price: "1.5 croces",
       speed: "155 mph",
       mileage: "420 km(single-charge)",
+      seat:"5",
     },
     {
       name: "TESLA",
@@ -36,6 +36,7 @@ export function Tesla() {
       price: "2 crores",
       speed: "155 mph",
       mileage: "547 km(single-charge)",
+      seat:"5",
     },
     {
       name: "TESLA",
@@ -45,6 +46,7 @@ export function Tesla() {
       price: "70 Lakhs",
       speed: "155 mph",
       mileage: "520 km(single-charge)",
+      seat:"5",
     }
   ];
   
@@ -58,7 +60,7 @@ export function Tesla() {
       <h1 className="brand">BRANDS OF CARS AVAILABLE  <FontAwesomeIcon icon={faCar}></FontAwesomeIcon></h1>
       <div className='tesla-list'>
         {user.map((nm) => <Teslacar name={nm.name} series={nm.series} price={nm.price}
-          speed={nm.speed} mileage={nm.mileage} type={nm.type} poster={nm.poster} />)}
+          speed={nm.speed} mileage={nm.mileage} type={nm.type} poster={nm.poster} seat={nm.seat} />)}
           <div className="joy">
       <h1>About Tesla:</h1>
       <h2 className="tes1">Tesla’s mission is to accelerate the world’s transition to sustainable energy.</h2>
@@ -71,7 +73,7 @@ export function Tesla() {
             a zero-emission future, the better.</h3>
             </div>
             <div>
-              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER</Button>🎉🎉</h1>
+              <h1>🎉🎉GET READY FOLKS -- <Button variant="contained"  onClick={()=>seteast(!east)}>TRAILER-CLICK ME</Button>🎉🎉</h1>
               
               </div>
               {east ?  <iframe width="100%" height="720" src="https://www.youtube.com/embed/jWreyC2l-dw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> :""}
@@ -80,8 +82,8 @@ export function Tesla() {
     </div>
   );
 }
-function Teslacar({ name, series, price, speed, mileage, type, poster }) {
-  const styles={backgroundColor:"yellow", textAlign:'center'}
+function Teslacar({ name, series, price, speed, mileage, type, poster,seat }) {
+  
   const ji={textAlign:'center'}
   const [show,setShow]=useState(false);
   return (
@@ -89,7 +91,7 @@ function Teslacar({ name, series, price, speed, mileage, type, poster }) {
 
 
       <img src={poster} alt="img" className='tesla-poster'></img>
-      <h3 style={styles}>{series}<IconButton 
+      <h3 className='styles'>{series}<IconButton 
       color="primary" 
       aria-label="add to shopping cart"
       onClick={()=>setShow(!show)}
@@ -101,8 +103,9 @@ function Teslacar({ name, series, price, speed, mileage, type, poster }) {
 {show ?  <h3 style={ji}><FontAwesomeIcon icon={faIndianRupee}></FontAwesomeIcon>:{price}</h3> :""}
 {show ?   <h3 style={ji}><FontAwesomeIcon icon={faGaugeHigh}></FontAwesomeIcon>: {speed}</h3>:""}
 {show ?  <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3>:""}
-      
-    
+{show ?  <h3 style={ji}><AirlineSeatReclineExtraIcon/>:{seat}</h3>:""}   
+
+
       
 
     </div>
