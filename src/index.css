@@ -119,6 +119,7 @@ object-fit: cover;
     gap: 50px;
     flex-wrap: wrap;
     justify-content: space-around;
+   
 }
 .benz-poster{
     width: 650px;
@@ -127,7 +128,7 @@ object-fit: cover;
 }
 .benz{
     width: 650px;
-    
+   
 
 }
 .benz-list{
