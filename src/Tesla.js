@@ -5,11 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import Button from '@mui/material/Button';
 import AirlineSeatReclineExtraIcon from '@mui/icons-material/AirlineSeatReclineExtra';
-import Select from "@mui/material/Select";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import { Modal } from "@mui/material";
+
 
 export function Tesla() {
   const user = [
@@ -111,9 +107,7 @@ function Teslacar({ name, series, price, speed, mileage, type, poster,seat }) {
 {show ?  <h3 style={ji}><FontAwesomeIcon icon={faGaugeSimpleHigh}></FontAwesomeIcon>:{mileage}</h3>:""}
 {show ?  <h3 style={ji}><AirlineSeatReclineExtraIcon/>:{seat}</h3>:""}   
 
-<Modal isopen={true}>
-  <h2>hi this is tue</h2>
-</Modal>
+
       
     </div>
   );
